@@ -3,7 +3,10 @@ import { DATABASE_URL } from "../config/index.js";
 
 export const conectdb = () => {
   try {
-    mongoose.connect(DATABASE_URL, {});
+    mongoose.connect(DATABASE_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log("Database connected successfully!");
   } catch (error) {
     console.log(`
