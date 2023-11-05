@@ -1,5 +1,5 @@
 import { JWT_REFRESH_SECRET } from "../../config/index.js";
-import User from "../../models/User.js";
+import User from "../../models/Users.js";
 import { RefreshToken } from "../../models/index.js";
 import CustomErrorHandler from "../../services/CustomErrorHandler.js";
 import jwtService from "../../services/JwtService.js";
