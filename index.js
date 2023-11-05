@@ -30,7 +30,7 @@ app.use(express.json());
  * ---------- Express Static Folder ----------
  */
 
-global.appRoot = "./";
+global.appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)));
 
 app.use("/uploads", express.static("uploads"));
 
