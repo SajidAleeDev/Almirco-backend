@@ -40,6 +40,18 @@ const productController = {
       res.status(201).json(document);
     });
   },
+  async index(req, res, next) {
+    let documents;
+    // pagination mongoose-pagination
+    try {
+      documents = await Product.find()
+        .select("-updatedAt -__v")
+        .sort({ _id: -1 });
+    } catch (err) {
+      return next(CustomErrorHandler.serverError());
+    }
+    return res.json(documents);
+  },
 };
 
 export default productController;
