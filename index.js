@@ -1,7 +1,4 @@
-import cors from "cors";
 import express from "express";
-import path from "path";
-import { fileURLToPath } from "url";
 import { APP_PORT } from "./config/index.js";
 import { conectdb } from "./database/db.configuration.js";
 import errorHandler from "./middlewares/errorHandler.js";
@@ -12,14 +9,12 @@ const app = express();
 /**
  * ---------- CONFIGURING CORS ----------
  */
-app.use(
-  cors({
-    origin: "*",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-  })
-);
+app.use((req, res, next) => {
+  res.set("Access-Control-Allow-Origin", "*");
+  res.set("Access-Control-Allow-Methods", "*");
+  res.set("Access-Control-Allow-Headers", "*");
+  res.set("Access-Control-Max-Age", "600");
+});
 /**
  * ---------- Database connection ----------
  */
