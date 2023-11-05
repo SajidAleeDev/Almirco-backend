@@ -3,18 +3,16 @@ import { APP_PORT } from "./config/index.js";
 import { conectdb } from "./database/db.configuration.js";
 import errorHandler from "./middlewares/errorHandler.js";
 import routes from "./routes/index.js";
+import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 
 /**
  * ---------- CONFIGURING CORS ----------
  */
-app.use((req, res, next) => {
-  res.set("Access-Control-Allow-Origin", "*");
-  res.set("Access-Control-Allow-Methods", "*");
-  res.set("Access-Control-Allow-Headers", "*");
-  res.set("Access-Control-Max-Age", "600");
-});
+app.use(cors());
 /**
  * ---------- Database connection ----------
  */
