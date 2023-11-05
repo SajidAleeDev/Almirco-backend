@@ -6,11 +6,10 @@ export const conectdb = () => {
     mongoose.connect(DATABASE_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useFindAndModify: false,
     });
     mongoose.connection.on("error", (error) => {
       console.log(`
-      -------- DATABASE CONNECTION ERROR -------- \n ${error?.message} 
+      -------- DATABASE CONNECTION ERROR Top -------- \n ${error?.message} 
 
       `);
     });

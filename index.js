@@ -4,8 +4,7 @@ import { conectdb } from "./database/db.configuration.js";
 import errorHandler from "./middlewares/errorHandler.js";
 import routes from "./routes/index.js";
 import cors from "cors";
-import path from "path";
-import { fileURLToPath } from "url";
+import path, { dirname } from "path";
 
 const app = express();
 
@@ -28,7 +27,7 @@ app.use(express.json());
  * ---------- Express Static Folder ----------
  */
 
-global.appRoot = path.resolve(__dirname);
+global.appRoot = path.resolve(dirname(""));
 app.use("/uploads", express.static("uploads"));
 
 /**
