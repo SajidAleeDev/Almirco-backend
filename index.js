@@ -22,6 +22,12 @@ conectdb();
  */
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(
+  express.json(
+    // fast data parsing
+    { limit: "50mb" }
+  )
+);
 
 /**
  * ---------- Express Static Folder ----------
