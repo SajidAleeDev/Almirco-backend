@@ -1,6 +1,5 @@
-[build]
-command = "npm run build" # Adjust the build command as needed
-publish = "uploads"       # Specify the publish directory as "uploads"
+# Adjust the build command as needed
+publish = "uploads" # Specify the publish directory as "uploads"
 
 [[redirects]]
 force = true
