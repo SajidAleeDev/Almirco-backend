@@ -35,7 +35,7 @@ app.use(
 /**
  * ---------- Express Static Folder ----------
  */
-const uploadDirectory = path.join(__dirname, "uploads");
+const uploadDirectory = "./uploads";
 if (!fs.existsSync(uploadDirectory)) {
   fs.mkdirSync(uploadDirectory);
 }
