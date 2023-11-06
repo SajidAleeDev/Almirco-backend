@@ -1,8 +1,8 @@
-import { JWT_REFRESH_SECRET } from "../../config/index.js";
-import { RefreshToken, User } from "../../models/index.js";
-import CustomErrorHandler from "../../services/CustomErrorHandler.js";
-import jwtService from "../../services/JwtService.js";
-import JioSchema from "../../validators/Jio.js";
+const { JWT_REFRESH_SECRET } = require("../../config/index.js");
+const { RefreshToken, User } = require("../../models/index.js");
+const CustomErrorHandler = require("../../services/CustomErrorHandler.js");
+const jwtService = require("../../services/JwtService.js");
+const JioSchema = require("../../validators/Jio.js");
 
 const refreshController = {
   async refresh(req, res, next) {
@@ -52,4 +52,4 @@ const refreshController = {
   },
 };
 
-export default refreshController;
+module.exports = refreshController;

@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import { APP_URL } from "../config/index.js";
+const mongoose = require("mongoose");
+
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema(
@@ -15,4 +15,4 @@ const productSchema = new Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Product", productSchema, "products");
+module.exports = mongoose.model("Product", productSchema, "products");

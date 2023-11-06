@@ -1,28 +1,27 @@
-import { APP_URL } from "../../config/index.js";
-import { Product } from "../../models/index.js";
-import CustomErrorHandler from "../../services/CustomErrorHandler.js";
-import { handleMultipartData } from "../../services/multer.js";
-import JioSchema from "../../validators/Jio.js";
-import fs from "fs";
+const { APP_URL } = require("../../config/index.js");
+const { Product } = require("../../models/index.js");
+const CustomErrorHandler = require("../../services/CustomErrorHandler.js");
+const { handleMultipartData } = require("../../services/multer.js");
+const JioSchema = require("../../validators/Jio.js");
+const fs = require("fs");
 
 const productController = {
   async store(req, res, next) {
     handleMultipartData(req, res, async (err) => {
       if (err) {
-        return next(CustomErrorHandler.serverError(err.message));
+        fs.unlink(`${appRoot}/${filePath}`, (err) => {
+          return next(CustomErrorHandler.serverError(err.message));
+        });
+        return next(err);
       }
 
       const filePath = req.file.path;
 
       const { error } = JioSchema.productSchema.validate(req.body);
       if (error) {
-        fs.unlink(`${appRoot}/${filePath}`, (err) => {
-          if (err) {
-            return next(CustomErrorHandler.serverError(err.message));
-          }
-        });
-
-        return next(error);
+        if (err) {
+          return next(CustomErrorHandler.serverError(err.message));
+        }
       }
       const { name, price, size } = req.body;
       let document;
@@ -54,4 +53,4 @@ const productController = {
   },
 };
 
-export default productController;
+module.exports = productController;

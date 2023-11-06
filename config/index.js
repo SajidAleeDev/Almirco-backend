@@ -1,8 +1,8 @@
-import dotenv from "dotenv";
+const dotenv = require("dotenv");
 
 dotenv.config();
 
-export const {
+const {
   APP_PORT,
   DATABASE_URL,
   APP_URL,
@@ -10,3 +10,12 @@ export const {
   JWT_SECRET,
   JWT_REFRESH_SECRET,
 } = process.env;
+
+module.exports = {
+  APP_PORT,
+  DATABASE_URL,
+  APP_URL,
+  DEBUG_MODE,
+  JWT_SECRET,
+  JWT_REFRESH_SECRET,
+};

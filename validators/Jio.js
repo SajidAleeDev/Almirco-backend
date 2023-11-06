@@ -1,4 +1,4 @@
-import Joi from "joi";
+const Joi = require("joi");
 
 const JioSchema = {
   register: Joi.object({
@@ -24,4 +24,4 @@ const JioSchema = {
   }),
 };
 
-export default JioSchema;
+module.exports = JioSchema;

@@ -1,6 +1,6 @@
-import { DEBUG_MODE } from "../config/index.js";
-import Joi from "joi";
-import CustomErrorHandler from "../services/CustomErrorHandler.js";
+const { DEBUG_MODE } = require("../config/index.js");
+const Joi = require("joi");
+const CustomErrorHandler = require("../services/CustomErrorHandler.js");
 
 const errorHandler = (err, req, res, next) => {
   let statusCode = 500;
@@ -26,4 +26,4 @@ const errorHandler = (err, req, res, next) => {
   return res.status(statusCode).json(data);
 };
 
-export default errorHandler;
+module.exports = errorHandler;

@@ -1,10 +1,9 @@
-import multer from "multer";
-
-import path from "path";
+const multer = require("multer");
+const path = require("path");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, `uploads/`);
+    cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
     const uniqueName = `${Date.now()}-${Math.round(
@@ -14,7 +13,8 @@ const storage = multer.diskStorage({
     cb(null, uniqueName);
   },
 });
-export const handleMultipartData = multer({
+
+exports.handleMultipartData = multer({
   storage,
   limits: { fileSize: 1000000 * 100 },
 }).single("image");

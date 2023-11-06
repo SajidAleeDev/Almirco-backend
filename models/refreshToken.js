@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
+
 const Schema = mongoose.Schema;
 
 const refreshTokenSchema = new Schema(
@@ -8,7 +9,7 @@ const refreshTokenSchema = new Schema(
   { timestamps: false }
 );
 
-export default mongoose.model(
+module.exports = mongoose.model(
   "RefreshToken",
   refreshTokenSchema,
   "refreshTokens"
