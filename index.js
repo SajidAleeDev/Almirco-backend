@@ -36,6 +36,8 @@ app.use(
 global.appRoot = path.resolve(dirname(""));
 app.use("/uploads", express.static("uploads"));
 
+app.use(express.static(path.join(appRoot, "uploads")));
+
 /**
  * ---------- ROUTES ----------
  */
