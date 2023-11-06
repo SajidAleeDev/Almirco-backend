@@ -5,7 +5,7 @@
       "destination": "/api"
     },
 
-    { "source": "/uploads/(.*)", "destination": "*" },
-    { "outputDirectory": "./uploads", "inputDirectory": "uploads/" }
-  ]
+    { "source": "/uploads/(.*)", "destination": "*" }
+  ],
+  "outputDirectory": "../uploads"
 }
