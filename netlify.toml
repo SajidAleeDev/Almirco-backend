@@ -1,9 +1,16 @@
+[build]
+command = "npm run build" # Adjust the build command as needed
+publish = "uploads"       # Specify the publish directory as "uploads"
 
-[functions]
-external_node_modules = ["express"]
-node_bundler = "esbuild"
 [[redirects]]
 force = true
 from = "/api/*"
 status = 200
 to = "/.netlify/functions/api/:splat"
+
+# Add this section to specify the "uploads" directory
+[[redirects]]
+force = true
+from = "/uploads/*"
+status = 200
+to = "/uploads/:splat"
