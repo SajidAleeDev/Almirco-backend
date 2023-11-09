@@ -1,5 +1,5 @@
-const { User } = require("../models/index.js");
-const CustomErrorHandler = require("../services/CustomErrorHandler.js");
+import { User } from "../models/index.js";
+import CustomErrorHandler from "../services/CustomErrorHandler.js";
 
 const admin = async (req, res, next) => {
   try {
@@ -14,4 +14,4 @@ const admin = async (req, res, next) => {
   }
 };
 
-module.exports = admin;
+export default admin;

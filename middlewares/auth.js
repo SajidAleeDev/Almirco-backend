@@ -1,5 +1,5 @@
-const CustomErrorHandler = require("../services/CustomErrorHandler.js");
-const JwtService = require("../services/JwtService.js");
+import CustomErrorHandler from "../services/CustomErrorHandler.js";
+import JwtService from "../services/JwtService.js";
 
 const auth = async (req, res, next) => {
   let authHeader = req.headers.authorization;
@@ -22,4 +22,4 @@ const auth = async (req, res, next) => {
   }
 };
 
-module.exports = auth;
+export default auth;

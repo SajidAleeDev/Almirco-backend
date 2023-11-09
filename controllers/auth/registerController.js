@@ -1,10 +1,10 @@
-const { JWT_REFRESH_SECRET } = require("../../config/index.js");
-const User = require("../../models/Users.js");
-const { RefreshToken } = require("../../models/index.js");
-const CustomErrorHandler = require("../../services/CustomErrorHandler.js");
-const jwtService = require("../../services/JwtService.js");
-const JioSchema = require("../../validators/Jio.js");
-const bcrypt = require("bcrypt");
+import { JWT_REFRESH_SECRET } from "../../config/index.js";
+import User from "../../models/Users.js";
+import { RefreshToken } from "../../models/index.js";
+import CustomErrorHandler from "../../services/CustomErrorHandler.js";
+import jwtService from "../../services/JwtService.js";
+import JioSchema from "../../validators/Jio.js";
+import bcrypt from "bcrypt";
 
 const regesterController = {
   async register(req, res, next) {
@@ -60,4 +60,4 @@ const regesterController = {
   },
 };
 
-module.exports = regesterController;
+export default regesterController;

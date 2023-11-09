@@ -1,12 +1,9 @@
-const express = require("express");
-const { APP_PORT } = require("./config/index.js");
-const { conectdb } = require("./database/db.configuration.js");
-const errorHandler = require("./middlewares/errorHandler.js");
-const routes = require("./routes/index.js");
-const cors = require("cors");
-const path = require("path");
-const { dirname } = require("path");
-const fs = require("fs");
+import express from "express";
+import { APP_PORT } from "./config/index.js";
+import { conectdb } from "./database/db.configuration.js";
+import errorHandler from "./middlewares/errorHandler.js";
+import routes from "./routes/index.js";
+import cors from "cors";
 
 const app = express();
 
@@ -14,7 +11,6 @@ const app = express();
  * ---------- CONFIGURING CORS ----------
  */
 app.use(cors());
-
 /**
  * ---------- Database connection ----------
  */
@@ -35,18 +31,11 @@ app.use(
 /**
  * ---------- Express Static Folder ----------
  */
-const uploadDirectory = "./uploads";
-if (!fs.existsSync(uploadDirectory)) {
-  fs.mkdirSync(uploadDirectory);
-}
-
-global.appRoot = path.resolve(dirname(""));
-app.use("/uploads", express.static("uploads"));
-app.use(express.static(path.join(appRoot, "uploads")));
 
 /**
  * ---------- ROUTES ----------
  */
+
 app.use("/api", routes);
 
 app.use("/", (req, res) => {
@@ -58,19 +47,19 @@ app.use("/", (req, res) => {
 app.get("/", (_req, res) => {
   res.send("Hello world!");
 });
-
 /**
  * ---------- Middlewares Configuration ----------
  */
-app.use(errorHandler);
 
+app.use(errorHandler);
 /**
  * ---------- Development Configuration ----------
  */
+
 const PORT = APP_PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
 
-module.exports = { app };
+export { app };

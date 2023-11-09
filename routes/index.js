@@ -1,13 +1,13 @@
-const express = require("express");
-const {
+import express from "express";
+import {
   registerController,
   loginController,
   userController,
   refreshController,
   productController,
-} = require("../controllers/index.js");
-const auth = require("../middlewares/auth.js");
-const admin = require("../middlewares/admin.js");
+} from "../controllers/index.js";
+import auth from "../middlewares/auth.js";
+import admin from "../middlewares/admin.js";
 
 const router = express();
 
@@ -20,4 +20,4 @@ router.post("/logout", auth, loginController.logout);
 router.post("/products", productController.store);
 router.get("/products", productController.index);
 
-module.exports = router;
+export default router;

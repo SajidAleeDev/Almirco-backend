@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const { DATABASE_URL } = require("../config/index.js");
+import mongoose from "mongoose";
+import { DATABASE_URL } from "../config/index.js";
 
-const conectdb = () => {
+export const conectdb = () => {
   try {
     mongoose.connect(DATABASE_URL, {
       useNewUrlParser: true,
@@ -23,5 +23,3 @@ const conectdb = () => {
       `);
   }
 };
-
-module.exports = { conectdb };

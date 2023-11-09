@@ -1,9 +1,9 @@
-const { RefreshToken, User } = require("../../models/index.js");
-const JioSchema = require("../../validators/Jio.js");
-const CustomErrorHandler = require("../../services/CustomErrorHandler.js");
-const bcrypt = require("bcrypt");
-const jwtService = require("../../services/JwtService.js");
-const { JWT_REFRESH_SECRET } = require("../../config/index.js");
+import { RefreshToken, User } from "../../models/index.js";
+import JioSchema from "../../validators/Jio.js";
+import CustomErrorHandler from "../../services/CustomErrorHandler.js";
+import bcrypt from "bcrypt";
+import jwtService from "../../services/JwtService.js";
+import { JWT_REFRESH_SECRET } from "../../config/index.js";
 
 const loginController = {
   async login(req, res, next) {
@@ -51,4 +51,4 @@ const loginController = {
   },
 };
 
-module.exports = loginController;
+export default loginController;

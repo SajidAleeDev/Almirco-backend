@@ -1,5 +1,5 @@
-exports.registerController = require("./auth/registerController.js");
-exports.loginController = require("./auth/loginController.js");
-exports.userController = require("./auth/userController.js");
-exports.refreshController = require("./auth/refreshController.js");
-exports.productController = require("./Product/product.js");
+export { default as registerController } from "./auth/registerController.js";
+export { default as loginController } from "./auth/loginController.js";
+export { default as userController } from "./auth/userController.js";
+export { default as refreshController } from "./auth/refreshController.js";
+export { default as productController } from "./Product/product.js";
