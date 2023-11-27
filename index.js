@@ -1,9 +1,9 @@
+import cors from "cors";
 import express from "express";
 import { APP_PORT } from "./config/index.js";
 import { conectdb } from "./database/db.configuration.js";
 import errorHandler from "./middlewares/errorHandler.js";
 import routes from "./routes/index.js";
-import cors from "cors";
 
 const app = express();
 
@@ -21,12 +21,6 @@ conectdb();
  */
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(
-  express.json(
-    // fast data parsing
-    { limit: "50mb" }
-  )
-);
 
 /**
  * ---------- Express Static Folder ----------
